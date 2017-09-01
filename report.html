@@ -11841,6 +11841,16 @@ div#notebook {
 <div class="output_area">
 <div class="prompt"></div>
 
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/Kieran/Library/Python/2.7/lib/python/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Boston housing dataset has 489 data points with 4 variables each.
       RM  LSTAT  PTRATIO      MEDV
@@ -11849,6 +11859,16 @@ div#notebook {
 2  7.185   4.03     17.8  728700.0
 3  6.998   2.94     18.7  701400.0
 4  7.147   5.33     18.7  760200.0
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/Kieran/Library/Python/2.7/lib/python/site-packages/sklearn/learning_curve.py:23: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
+  DeprecationWarning)
 </pre>
 </div>
 </div>
@@ -11887,23 +11907,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;MEDV&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="k">print</span> <span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span>
@@ -11932,7 +11952,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -11963,7 +11983,10 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> I think the increase of <em>RM</em> will cause the increae of <em>MEDV</em>, and the increase of <em>LSTAT</em> will cause the decrease of <em>MEDV</em>.  I also think the increase of <em>PTRATIO</em> will also cause the increase of <em>MEDV</em>.</p>
+<p><strong>Answer: </strong></p>
+<p>RM: The increase of <em>RM</em> will cause the increae of <em>MEDV</em>. More room in a house usually means more space for this house. Large sapce in a house usually means high price.</p>
+<p>LSTAT: The increase of <em>LSTAT</em> will cause the decrease of <em>MEDV</em>.  A house's price usually based on average neigborhood houses' price. High 'LSTAT' means people who live in the neigborhood cannot afford high price house. So, the increase of <em>LSTAT</em> may cause the decrease of <em>MEDV</em>.</p>
+<p>PTRATIO: The increase of <em>PTRATIO</em> will also cause the increase of <em>MEDV</em>. Low 'PTRATIO' means there are several good school in this neighborhood, since good school usually have low 'PTRATIO'. People usually willing to pay higher price to this kinds of house.</p>
 
 </div>
 </div>
@@ -12172,7 +12195,7 @@ Standard deviation of prices: $165,340.28
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer: </strong> Without a testing set, we may overfit the model but cannot find a good way to figure it out.</p>
+<p><strong>Answer: </strong> With a testing dateset, we can estimiate the performance of the model in an independent dataset. Without a testing set, we may overfit the model but cannot find a good way to figure it out and we cannot have an insight view of the model.</p>
 
 </div>
 </div>
